@@ -111,7 +111,7 @@
             this.groupBox4.Size = new System.Drawing.Size(800, 175);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBox4.Text = "Log";
             // 
             // rtbLog
             // 
