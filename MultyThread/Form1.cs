@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace MultyThread
 {
@@ -105,21 +106,34 @@ namespace MultyThread
         {
             _isWork = !_isWork;
             _isWorkT0 = _isWorkT1 = _isWorkT2 = _isWork;
+
+            if (_isWork)
+                AddToLog($"Работа всех потоков поставлена на паузу");
+            else
+                AddToLog($"Работа всех потоков остановлен");
         }
 
         private void bT0Click_Click(object sender, EventArgs e)
         {
-            _isWorkT0 = !_isWorkT0;
+            ThreadStateToLog(0, _isWorkT0 = !_isWorkT0);
         }
 
         private void bT1Click_Click(object sender, EventArgs e)
         {
-            _isWorkT1 = !_isWorkT1;
+            ThreadStateToLog(1, _isWorkT1 = !_isWorkT1);
         }
 
         private void bT3Click_Click(object sender, EventArgs e)
         {
-            _isWorkT2 = !_isWorkT2;
+            ThreadStateToLog(2, _isWorkT2 = !_isWorkT2);
+        }
+
+        private void ThreadStateToLog(int id, bool state)
+        {
+            if (state)
+                AddToLog($"Поток {id} поставлен на паузу");
+            else
+                AddToLog($"Поток {id} возобновил работу");
         }
     }
 }

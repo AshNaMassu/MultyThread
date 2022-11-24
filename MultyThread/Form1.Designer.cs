@@ -30,17 +30,21 @@
         {
             this.pbT0 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbT0 = new System.Windows.Forms.TextBox();
             this.bT0Click = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbT1 = new System.Windows.Forms.TextBox();
             this.bT1Click = new System.Windows.Forms.Button();
             this.pbT1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbT2 = new System.Windows.Forms.TextBox();
             this.bT3Click = new System.Windows.Forms.Button();
@@ -66,6 +70,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.progressBar1);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbT0);
             this.groupBox1.Controls.Add(this.bT0Click);
@@ -77,20 +83,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thead 0";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.BackColor = System.Drawing.Color.Red;
+            this.progressBar1.ForeColor = System.Drawing.Color.Blue;
+            this.progressBar1.Location = new System.Drawing.Point(125, 23);
+            this.progressBar1.MarqueeAnimationSpeed = 50;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(48, 16);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(85, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Status: ";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(131, 23);
+            this.label1.Location = new System.Drawing.Point(178, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 15);
+            this.label1.Size = new System.Drawing.Size(39, 15);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Delay";
+            this.label1.Text = "Delay:";
             // 
             // tbT0
             // 
-            this.tbT0.Location = new System.Drawing.Point(175, 19);
+            this.tbT0.Location = new System.Drawing.Point(220, 19);
             this.tbT0.Name = "tbT0";
-            this.tbT0.Size = new System.Drawing.Size(85, 23);
+            this.tbT0.Size = new System.Drawing.Size(40, 23);
             this.tbT0.TabIndex = 2;
             this.tbT0.Text = "100";
             // 
@@ -124,6 +150,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.tbT1);
             this.groupBox2.Controls.Add(this.bT1Click);
@@ -135,20 +162,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thead 1";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(85, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 15);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Status: ";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(131, 23);
+            this.label2.Location = new System.Drawing.Point(178, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
+            this.label2.Size = new System.Drawing.Size(39, 15);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Delay";
+            this.label2.Text = "Delay:";
             // 
             // tbT1
             // 
-            this.tbT1.Location = new System.Drawing.Point(175, 19);
+            this.tbT1.Location = new System.Drawing.Point(220, 19);
             this.tbT1.Name = "tbT1";
-            this.tbT1.Size = new System.Drawing.Size(85, 23);
+            this.tbT1.Size = new System.Drawing.Size(40, 23);
             this.tbT1.TabIndex = 2;
             this.tbT1.Text = "200";
             // 
@@ -173,6 +209,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.tbT2);
             this.groupBox3.Controls.Add(this.bT3Click);
@@ -184,20 +221,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thead 2";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(85, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 15);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Status: ";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(131, 23);
+            this.label3.Location = new System.Drawing.Point(179, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 15);
+            this.label3.Size = new System.Drawing.Size(39, 15);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Delay";
+            this.label3.Text = "Delay:";
             // 
             // tbT2
             // 
-            this.tbT2.Location = new System.Drawing.Point(175, 19);
+            this.tbT2.Location = new System.Drawing.Point(221, 19);
             this.tbT2.Name = "tbT2";
-            this.tbT2.Size = new System.Drawing.Size(85, 23);
+            this.tbT2.Size = new System.Drawing.Size(40, 23);
             this.tbT2.TabIndex = 2;
             this.tbT2.Text = "300";
             // 
@@ -276,5 +322,9 @@
         private Button bT3Click;
         private PictureBox pbT2;
         private Button bTAll;
+        private ProgressBar progressBar1;
+        private Label label4;
+        private Label label5;
+        private Label label6;
     }
 }
