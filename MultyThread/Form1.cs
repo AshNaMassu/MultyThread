@@ -61,35 +61,32 @@ namespace MultyThread
         }
 
         public void UpdateThread(int treadId, PictureBox threadPB, Color threadColor, ref int threadDelay, ref bool isWork)
-        { // Form и RichTextBox передаются только ради обновления формы в IF'е, но это не работает
-            Bitmap bmp = new Bitmap(threadPB.Width, threadPB.Height); // чтобы можно было пиксели picturebox заполнять
-            for (int y = 0; y < bmp.Height; y++) // проходимся по высоте
+        {
+            int width = threadPB.Width;
+            int height = threadPB.Height;
+
+            for (int yStep = 0; yStep < height; yStep++) // проходимся по высоте
             {
-                for (int x = 0; x < bmp.Width; x++) // по ширине
+                while (!isWork)
                 {
+                    Thread.Sleep(100);
+                }
 
-                    while (!isWork)
+                Bitmap bmp = new Bitmap(width, height); // чтобы можно было пиксели picturebox заполнять
+
+                for (int y = 0; y < yStep; y++)
+                {
+                    for (int x = 0; x < width; x++) // по ширине
                     {
-                        Thread.Sleep(100);
-                    } 
-
-                    bmp.SetPixel(x, bmp.Height - y - 1, threadColor); // ставим пиксель с указанными параметрами
-                    
-                    if (x % threadPB.Width == 0) // это условие для заметного поэтапного заполнения picturebox и richtextbox
-                    {
-                        //lock (threadPB) //блокировка ресурса
-                        //{
-                            SetNewImage(threadPB, bmp); // обновляем threadPB
-                        //}
-
-                        AddToLog($"Поток {treadId}: установил цвет {threadColor.Name} в {y} строку пикселей)"); ;
-
-                        //form.Update(); // не надо
-                        Thread.Sleep(threadDelay); // по идее чтобы нагляднее был виден процесс
+                        bmp.SetPixel(x, height - y - 1, threadColor); // ставим пиксель с указанными параметрами
                     }
                 }
+
+                // это для заметного поэтапного заполнения picturebox и richtextbox
+                SetNewImage(threadPB, bmp); // обновляем threadPB
+                AddToLog($"Поток {treadId}: установил цвет {threadColor.Name} в {yStep} строку пикселей)"); ;
+                Thread.Sleep(threadDelay); // по идее чтобы нагляднее был виден процесс
             }
-            SetNewImage(threadPB, bmp); // обновляем threadPB чтоб наверняка
         }
 
 
@@ -170,7 +167,7 @@ namespace MultyThread
             {
                 var value = Convert.ToInt32(tb.Text);
 
-                if (value < 1) return;
+                if (value < 0) return;
 
                 switch (id)
                 {
