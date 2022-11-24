@@ -30,9 +30,9 @@
         {
             this.pbT0 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bT0Click = new System.Windows.Forms.Button();
-            this.tbT0 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbT0 = new System.Windows.Forms.TextBox();
+            this.bT0Click = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -77,23 +77,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thead 0";
             // 
-            // bT0Click
-            // 
-            this.bT0Click.Location = new System.Drawing.Point(4, 19);
-            this.bT0Click.Name = "bT0Click";
-            this.bT0Click.Size = new System.Drawing.Size(75, 23);
-            this.bT0Click.TabIndex = 2;
-            this.bT0Click.Text = "Start/Stop";
-            this.bT0Click.UseVisualStyleBackColor = true;
-            // 
-            // tbT0
-            // 
-            this.tbT0.Location = new System.Drawing.Point(175, 19);
-            this.tbT0.Name = "tbT0";
-            this.tbT0.Size = new System.Drawing.Size(85, 23);
-            this.tbT0.TabIndex = 2;
-            this.tbT0.Text = "150";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -102,6 +85,23 @@
             this.label1.Size = new System.Drawing.Size(36, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Delay";
+            // 
+            // tbT0
+            // 
+            this.tbT0.Location = new System.Drawing.Point(175, 19);
+            this.tbT0.Name = "tbT0";
+            this.tbT0.Size = new System.Drawing.Size(85, 23);
+            this.tbT0.TabIndex = 2;
+            this.tbT0.Text = "100";
+            // 
+            // bT0Click
+            // 
+            this.bT0Click.Location = new System.Drawing.Point(4, 19);
+            this.bT0Click.Name = "bT0Click";
+            this.bT0Click.Size = new System.Drawing.Size(75, 23);
+            this.bT0Click.TabIndex = 2;
+            this.bT0Click.Text = "Start/Stop";
+            this.bT0Click.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -149,7 +149,7 @@
             this.tbT1.Name = "tbT1";
             this.tbT1.Size = new System.Drawing.Size(85, 23);
             this.tbT1.TabIndex = 2;
-            this.tbT1.Text = "150";
+            this.tbT1.Text = "200";
             // 
             // bT1Click
             // 
@@ -197,7 +197,7 @@
             this.tbT2.Name = "tbT2";
             this.tbT2.Size = new System.Drawing.Size(85, 23);
             this.tbT2.TabIndex = 2;
-            this.tbT2.Text = "150";
+            this.tbT2.Text = "300";
             // 
             // bT3Click
             // 
