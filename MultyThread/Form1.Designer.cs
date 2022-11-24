@@ -30,7 +30,6 @@
         {
             this.pbT0 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbT0 = new System.Windows.Forms.TextBox();
@@ -50,6 +49,9 @@
             this.bT3Click = new System.Windows.Forms.Button();
             this.pbT2 = new System.Windows.Forms.PictureBox();
             this.bTAll = new System.Windows.Forms.Button();
+            this.pbStatusT0 = new System.Windows.Forms.PictureBox();
+            this.pbStatusT1 = new System.Windows.Forms.PictureBox();
+            this.pbStatusT2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbT0)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -57,6 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbT1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbT2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatusT0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatusT1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatusT2)).BeginInit();
             this.SuspendLayout();
             // 
             // pbT0
@@ -70,7 +75,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.progressBar1);
+            this.groupBox1.Controls.Add(this.pbStatusT0);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbT0);
@@ -82,17 +87,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thead 0";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.BackColor = System.Drawing.Color.Red;
-            this.progressBar1.ForeColor = System.Drawing.Color.Blue;
-            this.progressBar1.Location = new System.Drawing.Point(125, 23);
-            this.progressBar1.MarqueeAnimationSpeed = 50;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(48, 16);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 5;
             // 
             // label4
             // 
@@ -119,6 +113,7 @@
             this.tbT0.Size = new System.Drawing.Size(40, 23);
             this.tbT0.TabIndex = 2;
             this.tbT0.Text = "100";
+            this.tbT0.TextChanged += new System.EventHandler(this.tbT0_TextChanged);
             // 
             // bT0Click
             // 
@@ -150,6 +145,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pbStatusT1);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.tbT1);
@@ -187,6 +183,7 @@
             this.tbT1.Size = new System.Drawing.Size(40, 23);
             this.tbT1.TabIndex = 2;
             this.tbT1.Text = "200";
+            this.tbT1.TextChanged += new System.EventHandler(this.tbT1_TextChanged);
             // 
             // bT1Click
             // 
@@ -209,6 +206,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pbStatusT2);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.tbT2);
@@ -246,6 +244,7 @@
             this.tbT2.Size = new System.Drawing.Size(40, 23);
             this.tbT2.TabIndex = 2;
             this.tbT2.Text = "300";
+            this.tbT2.TextChanged += new System.EventHandler(this.tbT2_TextChanged);
             // 
             // bT3Click
             // 
@@ -276,6 +275,33 @@
             this.bTAll.UseVisualStyleBackColor = true;
             this.bTAll.Click += new System.EventHandler(this.bTAll_Click);
             // 
+            // pbStatusT0
+            // 
+            this.pbStatusT0.BackColor = System.Drawing.Color.Red;
+            this.pbStatusT0.Location = new System.Drawing.Point(126, 23);
+            this.pbStatusT0.Name = "pbStatusT0";
+            this.pbStatusT0.Size = new System.Drawing.Size(16, 16);
+            this.pbStatusT0.TabIndex = 6;
+            this.pbStatusT0.TabStop = false;
+            // 
+            // pbStatusT1
+            // 
+            this.pbStatusT1.BackColor = System.Drawing.Color.Red;
+            this.pbStatusT1.Location = new System.Drawing.Point(126, 23);
+            this.pbStatusT1.Name = "pbStatusT1";
+            this.pbStatusT1.Size = new System.Drawing.Size(16, 16);
+            this.pbStatusT1.TabIndex = 7;
+            this.pbStatusT1.TabStop = false;
+            // 
+            // pbStatusT2
+            // 
+            this.pbStatusT2.BackColor = System.Drawing.Color.Red;
+            this.pbStatusT2.Location = new System.Drawing.Point(126, 23);
+            this.pbStatusT2.Name = "pbStatusT2";
+            this.pbStatusT2.Size = new System.Drawing.Size(16, 16);
+            this.pbStatusT2.TabIndex = 7;
+            this.pbStatusT2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -298,6 +324,9 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbT2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatusT0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatusT1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatusT2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -322,9 +351,11 @@
         private Button bT3Click;
         private PictureBox pbT2;
         private Button bTAll;
-        private ProgressBar progressBar1;
         private Label label4;
         private Label label5;
         private Label label6;
+        private PictureBox pbStatusT0;
+        private PictureBox pbStatusT1;
+        private PictureBox pbStatusT2;
     }
 }
