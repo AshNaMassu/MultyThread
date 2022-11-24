@@ -18,8 +18,8 @@ namespace MultyThread
             pbT0.Image = null; pbT1.Image = null; pbT2.Image = null;
             //rtbLog.Clear();
             tasks[0] = new Task(() => UpdateThread(0, pbT0, Color.Yellow, Convert.ToInt32(tbT0.Text))); //left параллельные отрисовки
-            tasks[1] = new Task(() => UpdateThread(1, pbT2, Color.Blue, Convert.ToInt32(tbT1.Text))); //right
-            tasks[2] = new Task(() => UpdateThread(2, pbT1, Color.Green, Convert.ToInt32(tbT2.Text))); //center
+            tasks[1] = new Task(() => UpdateThread(1, pbT1, Color.Blue, Convert.ToInt32(tbT1.Text))); //right
+            tasks[2] = new Task(() => UpdateThread(2, pbT2, Color.Green, Convert.ToInt32(tbT2.Text))); //center
             foreach (var t in tasks)
                 t.Start();
             //Task.WaitAll(tasks);
