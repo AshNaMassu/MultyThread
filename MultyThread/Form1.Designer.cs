@@ -102,6 +102,7 @@
             this.bT0Click.TabIndex = 2;
             this.bT0Click.Text = "Start/Stop";
             this.bT0Click.UseVisualStyleBackColor = true;
+            this.bT0Click.Click += new System.EventHandler(this.bT0Click_Click);
             // 
             // groupBox4
             // 
@@ -159,6 +160,7 @@
             this.bT1Click.TabIndex = 2;
             this.bT1Click.Text = "Start/Stop";
             this.bT1Click.UseVisualStyleBackColor = true;
+            this.bT1Click.Click += new System.EventHandler(this.bT1Click_Click);
             // 
             // pbT1
             // 
@@ -207,6 +209,7 @@
             this.bT3Click.TabIndex = 2;
             this.bT3Click.Text = "Start/Stop";
             this.bT3Click.UseVisualStyleBackColor = true;
+            this.bT3Click.Click += new System.EventHandler(this.bT3Click_Click);
             // 
             // pbT2
             // 

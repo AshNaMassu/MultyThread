@@ -9,36 +9,60 @@ namespace MultyThread
         {
             InitializeComponent();
             rtbLog.Clear();
+            InitializationThreads();
         }
 
-        public Task[] tasks = new Task[3];
-        
+        private Task[] _tasks { get; set; } = new Task[3];
+        private bool _isWork { get; set; } = false;
+        private bool _isAlreadyStart { get; set; } = false;
+        private bool _isWorkT0 = false;
+        private bool _isWorkT1 = false;
+        private bool _isWorkT2 = false;
+        private bool _isInit { get; set; } = false;
+
+
         private void bTAll_Click(object sender, EventArgs e)
+        {
+            if (!_isAlreadyStart)
+            {
+                foreach (var t in _tasks)
+                    t.Start();
+                _isAlreadyStart = true;
+            }
+
+            WorkStatusUpdate();
+        }
+
+        public void InitializationThreads()
         {
             pbT0.Image = null; pbT1.Image = null; pbT2.Image = null;
             //rtbLog.Clear();
-            tasks[0] = new Task(() => UpdateThread(0, pbT0, Color.Yellow, Convert.ToInt32(tbT0.Text))); //left параллельные отрисовки
-            tasks[1] = new Task(() => UpdateThread(1, pbT1, Color.Blue, Convert.ToInt32(tbT1.Text))); //right
-            tasks[2] = new Task(() => UpdateThread(2, pbT2, Color.Green, Convert.ToInt32(tbT2.Text))); //center
-            foreach (var t in tasks)
-                t.Start();
-            //Task.WaitAll(tasks);
+            _tasks[0] = new Task(() => UpdateThread(0, pbT0, Color.Yellow, Convert.ToInt32(tbT0.Text), ref _isWorkT0)); //left параллельные отрисовки
+            _tasks[1] = new Task(() => UpdateThread(1, pbT1, Color.Blue, Convert.ToInt32(tbT1.Text), ref _isWorkT1)); //right
+            _tasks[2] = new Task(() => UpdateThread(2, pbT2, Color.Green, Convert.ToInt32(tbT2.Text), ref _isWorkT2)); //center
         }
 
-        public void UpdateThread(int treadId, PictureBox threadPB, Color threadColor, int threadDelay)
+        public void UpdateThread(int treadId, PictureBox threadPB, Color threadColor, int threadDelay, ref bool isWork)
         { // Form и RichTextBox передаются только ради обновления формы в IF'е, но это не работает
             Bitmap bmp = new Bitmap(threadPB.Width, threadPB.Height); // чтобы можно было пиксели picturebox заполнять
             for (int y = 0; y < bmp.Height; y++) // проходимся по высоте
             {
                 for (int x = 0; x < bmp.Width; x++) // по ширине
                 {
+
+                    while (!isWork)
+                    {
+                        Thread.Sleep(100);
+                    } 
+
                     bmp.SetPixel(x, bmp.Height - y - 1, threadColor); // ставим пиксель с указанными параметрами
                     
                     if (x % threadPB.Width == 0) // это условие для заметного поэтапного заполнения picturebox и richtextbox
                     {
-                        //logRTB.Text += $"Поток {threadDelay}: установил цвет {threadColor.Name} в пиксель ({x}, {y})\threadDelay";
-                        //logRTB.Invoke(new AddRTextDelegate(RTextAdd), threadColor.Name, x, y, threadDelay); не надо
-                        SetNewImage(threadPB, bmp); // обновляем threadPB
+                        //lock (threadPB) //блокировка ресурса
+                        //{
+                            SetNewImage(threadPB, bmp); // обновляем threadPB
+                        //}
 
                         AddToLog($"Поток {treadId}: установил цвет {threadColor.Name} в {y} строку пикселей)"); ;
 
@@ -58,7 +82,7 @@ namespace MultyThread
             rtbLog.BeginInvoke(new UpdateRichTextBoxDelegate(UpdateRichTextBox), logValue);
         }
 
-        public void UpdateRichTextBox(string logValue)
+        private void UpdateRichTextBox(string logValue)
         {
             rtbLog.AppendText(logValue + Environment.NewLine);
             rtbLog.ScrollToCaret();
@@ -72,11 +96,30 @@ namespace MultyThread
             imageControl.BeginInvoke(new UpdatePictureBoxDelegate(UpdatePictureBox), new object[] { imageControl, imageValue });
         }
 
-        public void UpdatePictureBox(PictureBox imageControl, Image imageValue)
+        private void UpdatePictureBox(PictureBox imageControl, Image imageValue)
         {
             imageControl.Image = imageValue;
         }
 
-        
+        private void WorkStatusUpdate()
+        {
+            _isWork = !_isWork;
+            _isWorkT0 = _isWorkT1 = _isWorkT2 = _isWork;
+        }
+
+        private void bT0Click_Click(object sender, EventArgs e)
+        {
+            _isWorkT0 = !_isWorkT0;
+        }
+
+        private void bT1Click_Click(object sender, EventArgs e)
+        {
+            _isWorkT1 = !_isWorkT1;
+        }
+
+        private void bT3Click_Click(object sender, EventArgs e)
+        {
+            _isWorkT2 = !_isWorkT2;
+        }
     }
 }
