@@ -170,6 +170,8 @@ namespace MultyThread
             {
                 var value = Convert.ToInt32(tb.Text);
 
+                if (value < 1) return;
+
                 switch (id)
                 {
                     case 0: _delayT0 = value; break;
